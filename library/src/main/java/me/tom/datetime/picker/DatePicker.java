@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DatePicker extends AbstractPicker {
 
@@ -46,27 +47,27 @@ public class DatePicker extends AbstractPicker {
     }
 
     public DatePicker(Context context) {
-        super(context);
+        this(context, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH) + 1);
     }
 
     public DatePicker(Context context, int year, int month) {
-        super(context, year, month);
+        this(context, year, month, Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
     }
 
     public DatePicker(Context context, int year, int month, int day) {
-        super(context, year, month, day);
+        initialize(context, year, month, day, getDefaultYears(), getDefaultMonths());
     }
 
     public DatePicker(Context context, ArrayList<Integer> years, ArrayList<Integer> months) {
-        super(context, years, months);
+        this(context, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH) + 1, years, months);
     }
 
     public DatePicker(Context context, int year, int month, ArrayList<Integer> years, ArrayList<Integer> months) {
-        super(context, year, month, years, months);
+        this(context, year, month, Calendar.getInstance().get(Calendar.DAY_OF_MONTH), years, months);
     }
 
     public DatePicker(Context context, int year, int month, int day, ArrayList<Integer> years, ArrayList<Integer> months) {
-        super(context, year, month, day, years, months);
+        initialize(context, year, month, day, years, months);
     }
 
     public void setDatePickerListener(IDatePickerListener datePickerListener) {

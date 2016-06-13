@@ -169,33 +169,17 @@ public abstract class AbstractPicker {
         }
     }
 
-    public AbstractPicker(Context context) {
-        this(context, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH) + 1);
-    }
-
-    public AbstractPicker(Context context, int year, int month) {
-        this(context, year, month, Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-    }
-
-    public AbstractPicker(Context context, int year, int month, int day) {
+    public ArrayList<Integer> getDefaultYears() {
         ArrayList<Integer> years = new ArrayList<>();
         for (int index = 1970; index <= Calendar.getInstance().get(Calendar.YEAR) + 10; index++) {
             years.add(index);
         }
-        ArrayList<Integer> months = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
-        initialize(context, year, month, day, years, months);
+
+        return years;
     }
 
-    public AbstractPicker(Context context, ArrayList<Integer> years, ArrayList<Integer> months) {
-        this(context, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH) + 1, years, months);
-    }
-
-    public AbstractPicker(Context context, int year, int month, ArrayList<Integer> years, ArrayList<Integer> months) {
-        this(context, year, month, Calendar.getInstance().get(Calendar.DAY_OF_MONTH), years, months);
-    }
-
-    public AbstractPicker(Context context, int year, int month, int day, ArrayList<Integer> years, ArrayList<Integer> months) {
-        initialize(context, year, month, day, years, months);
+    public ArrayList<Integer> getDefaultMonths() {
+        return new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
     }
 
     public void setDayPickerAvailableStatus(boolean isDayPickerAvailable) {
