@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 
 import me.tom.datetime.picker.DatePicker;
+import me.tom.datetime.picker.DateTimePicker;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,6 +61,27 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 datePicker.show();
+            }
+        });
+
+        Button datetimePickerButton = (Button) findViewById(R.id.datetimePicker);
+        datetimePickerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DateTimePicker dateTimePicker = new DateTimePicker(MainActivity.this);
+                dateTimePicker.setClearAvailableStatus(radioAllButtons.isChecked());
+                dateTimePicker.setDateTimePickerListener(new DateTimePicker.IDateTimePickerListener() {
+                    @Override
+                    public void onClear() {
+                        Log.d("Date Time Picker:", "clear");
+                    }
+
+                    @Override
+                    public void onOK(int year, int month, int day, int hour, int minute) {
+                        Log.d("Date Time Picker:", year + "-" + month + "-" + day + " " + hour + ":" + minute);
+                    }
+                });
+                dateTimePicker.show();
             }
         });
     }
