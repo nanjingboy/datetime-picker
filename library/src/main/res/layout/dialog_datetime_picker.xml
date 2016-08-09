@@ -14,7 +14,8 @@
         android:layout_height="match_parent"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:focusableInTouchMode="true">
         <NumberPicker
             android:id="@+id/hourPicker"
             android:layout_width="wrap_content"
