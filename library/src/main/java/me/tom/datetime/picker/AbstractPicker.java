@@ -145,8 +145,7 @@ public abstract class AbstractPicker {
 
     protected void setDays(int day) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, mYears.get(mYearPicker.getValue()));
-        calendar.set(Calendar.MONTH, mMonths.get(mMonthPicker.getValue()) - 1);
+        calendar.set(mYears.get(mYearPicker.getValue()), mMonths.get(mMonthPicker.getValue()) - 1, 1);
         int daysCount = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         mDays = new ArrayList<>();
         String[] dayPickerDisplayValues = new String[daysCount];
