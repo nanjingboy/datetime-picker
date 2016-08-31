@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.nanjingboy:datetime-picker:1.0.1'
+    compile 'com.github.nanjingboy:datetime-picker:1.0.3'
 }
 ```
 
