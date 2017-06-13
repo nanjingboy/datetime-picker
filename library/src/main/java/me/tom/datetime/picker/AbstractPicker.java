@@ -2,11 +2,12 @@ package me.tom.datetime.picker;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -119,9 +120,9 @@ public abstract class AbstractPicker {
             }
         });
 
-        mAlertDialog = new AlertDialog.Builder(context, R.style.DateTimePicker).create();
-        mAlertDialog.getWindow().setGravity(Gravity.BOTTOM);
-        mAlertDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        mAlertDialog = new AlertDialog.Builder(context).create();
+        mAlertDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.FILL_HORIZONTAL);
+        mAlertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mAlertDialog.setCancelable(true);
         mAlertDialog.setCanceledOnTouchOutside(true);
         mAlertDialog.setView(mContentView);

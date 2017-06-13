@@ -5,7 +5,8 @@
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@android:color/white">
 
     <include layout="@layout/date_pickers"/>
     <include layout="@layout/buttons"/>
